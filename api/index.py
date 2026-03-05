@@ -4,7 +4,11 @@ import numpy as np
 import base64
 import random
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="../templates",
+    static_folder="../static"
+)
 
 image = None
 history = []
