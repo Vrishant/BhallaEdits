@@ -1,90 +1,92 @@
-Bhalla Edits – Pixel Manipulation Web Editor
+# Bhalla Edits – Pixel Manipulation Web Editor
 
-Bhalla Edits is a lightweight web-based image editor that allows users to perform pixel-level modifications directly in the browser. The application uses Python-based image processing on the backend and a dynamic canvas interface on the frontend to enable precise pixel editing operations.
+Bhalla Edits is a lightweight web-based image editor that allows users to perform **pixel-level modifications** directly in the browser. The application uses **Python-based image processing on the backend** and a **dynamic canvas interface on the frontend** to enable precise pixel editing operations.
 
 The tool supports region selection, pixel shifting, color modification, zooming, and exporting edited images.
 
-Features
-Image Upload
+---
+
+## Features
+
+### Image Upload
 
 Users can upload an image which is rendered inside a dynamic canvas environment for editing.
 
-Pixel Color Modification
+### Pixel Color Modification
 
 Individual pixels can be modified by selecting a color and clicking on the image.
 
-Region Selection
+### Region Selection
 
 Users can select a rectangular region of the image using a mouse drag selection box.
 
-Region Pixel Shifting
+### Region Pixel Shifting
 
 Selected regions can be shifted horizontally by a specified number of pixels. The area left behind is automatically filled using repeated pixel layers sampled from above the shifted region.
 
-Randomized Pixel Filling
+### Randomized Pixel Filling
 
 To improve visual blending, pixel layers used for filling can be randomized vertically and horizontally.
 
-Undo Functionality
+### Undo Functionality
 
 Users can revert to previous states of the image.
 
-Zoom and Navigation
+### Zoom and Navigation
 
 The canvas supports:
 
-Zoom in
-
-Zoom out
-
-Reset zoom
-
-Pan movement in four directions
+* Zoom in
+* Zoom out
+* Reset zoom
+* Pan movement in four directions
 
 This allows large images to be edited comfortably within a fixed container.
 
-Professional Selection Overlay
+### Professional Selection Overlay
 
 Selected regions display:
 
-Solid rectangular borders
-
-A translucent blue overlay
+* Solid rectangular borders
+* A translucent blue overlay
 
 to clearly indicate the active editing area.
 
-Image Export
+### Image Export
 
 Users can download the edited image with the default filename:
 
+```
 Bhalla Edits.png
-Technology Stack
+```
+
+---
+
+## Technology Stack
 
 Frontend
 
-HTML
-
-CSS
-
-JavaScript
-
-HTML5 Canvas API
+* HTML
+* CSS
+* JavaScript
+* HTML5 Canvas API
 
 Backend
 
-Python
-
-Flask
-
-OpenCV
+* Python
+* Flask
+* OpenCV
 
 Image Processing
 
-NumPy
+* NumPy
+* OpenCV pixel manipulation
 
-OpenCV pixel manipulation
+---
 
-Project Architecture
+## Project Architecture
+
+```
 BhallaEdits/
 │
 ├── app.py                # Flask backend server
@@ -96,70 +98,105 @@ BhallaEdits/
 │   └── script.js        # Frontend logic
 │
 └── README.md
-Installation
-1. Clone the Repository
+```
+
+---
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/bhalla-edits.git
 cd bhalla-edits
-2. Install Dependencies
+```
+
+### 2. Install Dependencies
+
+```bash
 pip install flask opencv-python numpy
-3. Run the Application
+```
+
+### 3. Run the Application
+
+```bash
 python app.py
+```
 
 The server will start locally.
 
-Accessing the Application
+---
+
+## Accessing the Application
 
 Open your browser and navigate to:
 
+```
 http://localhost:5000
-Mobile Access (Local Network)
+```
+
+---
+
+## Mobile Access (Local Network)
 
 To access the editor on your mobile device:
 
-Run Flask with network access
+1. Run Flask with network access
 
+```python
 app.run(host="0.0.0.0", port=5000)
+```
 
-Find your computer's local IP address
+2. Find your computer's local IP address
 
-Open the following URL on your mobile device (same WiFi network)
+3. Open the following URL on your mobile device (same WiFi network)
 
+```
 http://YOUR_IP_ADDRESS:5000
-Controls
-Action	Description
-Click	Change pixel color
-Click + Drag	Select region
-Shift Region	Move selected region
-Zoom In/Out	Scale the image
-Arrow Buttons	Move canvas
-Undo	Revert last edit
-Download	Save edited image
-Known Limitations
+```
 
-Very large images may impact performance due to canvas redraw operations.
+---
 
-Mobile touch gestures require additional event handling for optimal selection interaction.
+## Controls
 
-The editor currently supports rectangular selections only.
+| Action        | Description          |
+| ------------- | -------------------- |
+| Click         | Change pixel color   |
+| Click + Drag  | Select region        |
+| Shift Region  | Move selected region |
+| Zoom In/Out   | Scale the image      |
+| Arrow Buttons | Move canvas          |
+| Undo          | Revert last edit     |
+| Download      | Save edited image    |
 
-Future Improvements
+---
+
+## Known Limitations
+
+* Very large images may impact performance due to canvas redraw operations.
+* Mobile touch gestures require additional event handling for optimal selection interaction.
+* The editor currently supports rectangular selections only.
+
+---
+
+## Future Improvements
 
 Potential improvements include:
 
-Multi-layer editing
+* Multi-layer editing
+* Brush tools
+* Polygon selection tools
+* Performance optimizations using WebGL
+* Mobile touch gesture support
+* Multiple undo/redo stack
+* GPU-based image processing
 
-Brush tools
+---
 
-Polygon selection tools
-
-Performance optimizations using WebGL
-
-Mobile touch gesture support
-
-Multiple undo/redo stack
-
-GPU-based image processing
-
-License
+## License
 
 This project is open source and available for educational and experimental purposes.
+
+---
+
+If you'd like Sir, I can also give you a **much more impressive GitHub README (with badges, screenshots, and demo GIFs)** that makes the project look **portfolio-level professional for recruiters.**
