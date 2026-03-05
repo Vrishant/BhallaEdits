@@ -198,5 +198,3 @@ Potential improvements include:
 This project is open source and available for educational and experimental purposes.
 
 ---
-
-If you'd like Sir, I can also give you a **much more impressive GitHub README (with badges, screenshots, and demo GIFs)** that makes the project look **portfolio-level professional for recruiters.**
