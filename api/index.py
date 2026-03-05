@@ -14,23 +14,29 @@ app = Flask(
 app.secret_key = secrets.token_hex(16)
 
 
+# def decode_image(data):
+#     encoded = data.split(",")[1]
+#     nparr = np.frombuffer(base64.b64decode(encoded), np.uint8)
+#     return cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 def decode_image(data):
-    encoded = data.split(",")[1]
-    nparr = np.frombuffer(base64.b64decode(encoded), np.uint8)
-    return cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
+    if "," in data:
+        data = data.split(",")[1]
+
+    nparr = np.frombuffer(base64.b64decode(data), np.uint8)
+
+    return cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
 def encode_image(img):
     _, buffer = cv2.imencode('.png', img)
     return base64.b64encode(buffer).decode('utf-8')
 
-
 def get_image():
     data = session.get("image")
     if not data:
         return None
-    return decode_image("data:image/png;base64," + data)
 
+    return decode_image(data)
 
 def save_image(img):
     encoded = encode_image(img)
@@ -64,7 +70,9 @@ def upload():
     session["image"] = encoded
     session["history"] = [encoded]
 
-    return jsonify({"status": "uploaded"})
+    return jsonify({
+        "image": encoded
+    })
 
 
 @app.route('/change_color', methods=['POST'])
