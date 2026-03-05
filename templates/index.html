@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bhalla Edits</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Bhalla Edits</h1>
+
+<input type="file" id="upload">
+
+<br>
+
+<div class="canvas-container">
+    <canvas id="canvas"></canvas>
+</div>
+
+<div class="zoom-controls">
+    <button onclick="zoomIn()">Zoom +</button>
+    <button onclick="zoomOut()">Zoom -</button>
+    <button onclick="resetZoom()">Center Zoom</button>
+</div>
+
+<div class="move-controls">
+
+<button onclick="moveUp()">↑</button>
+<br>
+
+<button onclick="moveLeft()">←</button>
+<button onclick="moveRight()">→</button>
+
+<br>
+<button onclick="moveDown()">↓</button>
+
+</div>
+
+<div class="controls">
+
+<input type="number" id="shift" placeholder="Shift Pixels">
+
+<button onclick="shiftRegion()">Shift Area</button>
+<button onclick="undo()">Undo</button>
+
+<button class="download" onclick="downloadImage()">Download</button>
+
+</div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
