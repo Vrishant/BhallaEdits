@@ -180,7 +180,9 @@ function redrawCanvas(){
     ctx.drawImage(currentImageObj,0,0);
 
     ctx.strokeStyle = "#60a5fa";
-    ctx.lineWidth = 1;   // thinner box
+    const borderWidth = Math.max(2, 2 / zoomLevel);
+    ctx.lineWidth = borderWidth;
+    // ctx.lineWidth = 1;   // thinner box
     ctx.setLineDash([5,5]);  // dashed professional look
 
     ctx.strokeRect(
@@ -306,3 +308,38 @@ function moveDown(){
 function updateZoom(){
     canvas.style.transform = `scale(${zoomLevel})`;
 }
+
+canvas.addEventListener("touchstart", function(e){
+
+    e.preventDefault();
+
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+
+    startX = (touch.clientX - rect.left) / zoomLevel;
+    startY = (touch.clientY - rect.top) / zoomLevel;
+
+    selecting = true;
+
+});
+
+canvas.addEventListener("touchmove", function(e){
+
+    if(!selecting) return;
+
+    e.preventDefault();
+
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+
+    endX = (touch.clientX - rect.left) / zoomLevel;
+    endY = (touch.clientY - rect.top) / zoomLevel;
+
+    redrawCanvas();
+
+});
+canvas.addEventListener("touchend", function(){
+
+    selecting = false;
+
+});

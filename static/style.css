@@ -42,6 +42,8 @@ h1{
 
 canvas{
     transform-origin: center center;
+    touch-action: none;
+
 }
 
 .controls{
